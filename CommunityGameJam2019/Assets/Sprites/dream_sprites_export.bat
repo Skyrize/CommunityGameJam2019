@@ -10,3 +10,9 @@ rem WALK
 rem Finger sprites
 "C:\Program Files\Aseprite\Aseprite.exe" -b %folderRoot%/PlayerFinger/finger_right.aseprite %scaling% --save-as %folderRoot%/PlayerFinger/finger_right.png
 "C:\Program Files\Aseprite\Aseprite.exe" -b %folderRoot%/PlayerFinger/finger_left.aseprite %scaling% --save-as %folderRoot%/PlayerFinger/finger_left.png
+
+rem Décoration
+"C:\Program Files\Aseprite\Aseprite.exe" -b %folderRoot%/Decoration/rock_1.aseprite %scaling% --save-as %folderRoot%/Decoration/rock_1.png
+
+rem Map
+"C:\Program Files\Aseprite\Aseprite.exe" -b %folderRoot%/Map/map.aseprite %scaling% --save-as %folderRoot%/Map/map.png

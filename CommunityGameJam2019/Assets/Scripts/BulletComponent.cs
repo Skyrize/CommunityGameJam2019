@@ -6,12 +6,9 @@ public class BulletComponent : MonoBehaviour
 {
     [Header("Attributes")]
     public float damages = 1;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-    
+    [Space]
+    [Header("Statistics")]
+    public float lifeTime = 10;
     private void OnTriggerEnter2D(Collider2D other)
     {
         HealthComponent otherHeath = other.GetComponent<HealthComponent>();
@@ -19,5 +16,14 @@ public class BulletComponent : MonoBehaviour
         if (otherHeath)
             other.GetComponent<HealthComponent>().GetDamaged(damages);
         Destroy(gameObject);
+    }
+    
+    private void Update()
+    {
+        if (lifeTime <= 0) {
+            Destroy(gameObject);
+        } else {
+            lifeTime -= Time.deltaTime;
+        }
     }
 }

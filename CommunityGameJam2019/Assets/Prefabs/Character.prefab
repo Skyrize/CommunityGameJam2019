@@ -154,7 +154,7 @@ GameObject:
   - component: {fileID: 2610514030580291199}
   m_Layer: 0
   m_Name: Character
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -387,6 +387,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gun
       objectReference: {fileID: 0}
+    - target: {fileID: 8359227589063968055, guid: 9c6f84e6816d6ca42b28977084f2c660,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3522452399883590997, guid: 9c6f84e6816d6ca42b28977084f2c660,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -441,11 +446,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8359227589063968055, guid: 9c6f84e6816d6ca42b28977084f2c660,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c6f84e6816d6ca42b28977084f2c660, type: 3}

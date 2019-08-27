@@ -9,12 +9,11 @@ public class BulletComponent : MonoBehaviour
     [Space]
     [Header("Statistics")]
     public float lifeTime = 10;
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        HealthComponent otherHeath = other.GetComponent<HealthComponent>();
-        Debug.Log(other.name);
+    private void OnCollisionEnter2D(Collision2D other) {
+        HealthComponent otherHeath = other.gameObject.GetComponent<HealthComponent>();
+        Debug.Log(other.gameObject.name);
         if (otherHeath)
-            other.GetComponent<HealthComponent>().GetDamaged(damages);
+            other.gameObject.GetComponent<HealthComponent>().GetDamaged(damages);
         Destroy(gameObject);
     }
     

@@ -11,16 +11,36 @@ public class BodyControllerComponent : MonoBehaviour
     private Vector2 direction;
     private float speed;
 
-    private void FixedUpdate()
+    private SpriteRenderer spriteRenderer;
+    private ArmControllerComponent armsController;
+
+    private void Start()
     {
-        AnimatorHandler();
+        armsController = GameObject.Find("Arms").GetComponent<ArmControllerComponent>();
+        spriteRenderer = this.GetComponent<SpriteRenderer>();
     }
 
-    private void AnimatorHandler()
+    private void FixedUpdate()
     {
         direction = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         speed = Mathf.Clamp(direction.magnitude, 0.0f, 1.0f);
 
-		animatorBody.SetFloat("speed", speed);
+        // Used to change the current animation in the animator
+        // @see Parameters in Body Animator
+        animatorBody.SetFloat("speed", speed);
+
+        spriteRenderer.flipX = GetXFlipDirection();
+    }
+
+    /**
+     *  We check the finger rotation to determinate the body direction
+     */
+    private bool GetXFlipDirection()
+    {
+        if (armsController.direction.x >= 0) {
+            return true;
+        }
+
+        return false;
     }
 }

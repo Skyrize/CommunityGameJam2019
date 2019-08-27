@@ -16,8 +16,8 @@ TagManager:
   - 
   - 
   - Bullet
-  - 
-  - 
+  - Player
+  - Map
   - 
   - 
   - 
@@ -42,4 +42,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Player
+    uniqueID: 3725115817
+    locked: 0
+  - name: Map
+    uniqueID: 2005595807
     locked: 0

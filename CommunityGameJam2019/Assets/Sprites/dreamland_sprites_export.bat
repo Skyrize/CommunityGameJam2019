@@ -26,6 +26,9 @@ set folderCustom=Decorations
 rem Rock
 "C:\Program Files\Aseprite\Aseprite.exe" -b %folderRoot%/%folderCustom%/rock_1.aseprite %scaling% --save-as %folderRoot%/%folderCustom%/rock_1.png
 
+rem Fency
+"C:\Program Files\Aseprite\Aseprite.exe" -b %folderRoot%/%folderCustom%/fency_1.aseprite %scaling% --save-as %folderRoot%/%folderCustom%/fency_1.png
+
 rem Heart
 "C:\Program Files\Aseprite\Aseprite.exe" -b %folderRoot%/%folderCustom%/heart.aseprite %scaling% --save-as %folderRoot%/%folderCustom%/heart.png
 "C:\Program Files\Aseprite\Aseprite.exe" -b %folderRoot%/%folderCustom%/heart_blue.aseprite %scaling% --save-as %folderRoot%/%folderCustom%/heart_blue.png
@@ -33,8 +36,8 @@ rem Heart
 "C:\Program Files\Aseprite\Aseprite.exe" -b %folderRoot%/%folderCustom%/heart_yellow.aseprite %scaling% --save-as %folderRoot%/%folderCustom%/heart_yellow.png
 
 rem Flover
-"C:\Program Files\Aseprite\Aseprite.exe" -b %folderRoot%/%folderCustom%/flover_red_1.aseprite %scaling% --save-as %folderRoot%/%folderCustom%/flover_red_1.png
-"C:\Program Files\Aseprite\Aseprite.exe" -b %folderRoot%/%folderCustom%/flover_white_1.aseprite %scaling% --save-as %folderRoot%/%folderCustom%/flover_white_1.png
+"C:\Program Files\Aseprite\Aseprite.exe" -b %folderRoot%/%folderCustom%/flover_red_1.aseprite --scale 1 --save-as %folderRoot%/%folderCustom%/flover_red_1.png
+"C:\Program Files\Aseprite\Aseprite.exe" -b %folderRoot%/%folderCustom%/flover_white_1.aseprite --scale 1 --save-as %folderRoot%/%folderCustom%/flover_white_1.png
 
 rem Candy
 "C:\Program Files\Aseprite\Aseprite.exe" -b %folderRoot%/%folderCustom%/candy_1.aseprite %scaling% --save-as %folderRoot%/%folderCustom%/candy_1.png

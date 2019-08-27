@@ -1,0 +1,2 @@
+call dreamland_sprites_export.bat
+call realityland_sprites_export.bat

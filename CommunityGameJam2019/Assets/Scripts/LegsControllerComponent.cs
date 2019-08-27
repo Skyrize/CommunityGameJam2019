@@ -10,17 +10,42 @@ public class LegsControllerComponent : MonoBehaviour
 
     private Vector2 direction;
     private float speed;
+    private SpriteRenderer spriteRenderer;
+    private float horizontalMove;
+
+    private void Start()
+    {
+        horizontalMove = 0f;
+        spriteRenderer = this.GetComponent<SpriteRenderer>();
+    }
 
     private void FixedUpdate()
     {
-        AnimatorHandler();
-    }
+        horizontalMove = Input.GetAxis("Horizontal");
 
-    private void AnimatorHandler()
-    {
-        direction = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        direction = new Vector2(horizontalMove, Input.GetAxis("Vertical"));
         speed = Mathf.Clamp(direction.magnitude, 0.0f, 1.0f);
 
-		animatorLegs.SetFloat("speed", speed);
+        // Used to change the current animation in the animator
+        // @see Parameters in Body Animator
+        animatorLegs.SetFloat("speed", speed);
+
+        spriteRenderer.flipX = GetXFlipDirection();
+    }
+
+    /**
+     *  Get the direction of the player
+     *  If no direction is selected, we return the current direction
+     *  true -> right & false -> left
+     */
+    private bool GetXFlipDirection()
+    {
+        if (horizontalMove > 0) {
+            return true;
+        } else if (horizontalMove < 0) {
+            return false;
+        }
+
+        return spriteRenderer.flipX;
     }
 }

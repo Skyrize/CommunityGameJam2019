@@ -28,6 +28,15 @@ rem Rock
 
 rem Fency
 "C:\Program Files\Aseprite\Aseprite.exe" -b %folderRoot%/%folderCustom%/fency_1.aseprite %scaling% --save-as %folderRoot%/%folderCustom%/fency_1.png
+"C:\Program Files\Aseprite\Aseprite.exe" -b %folderRoot%/%folderCustom%/fency_2.aseprite %scaling% --save-as %folderRoot%/%folderCustom%/fency_2.png
+"C:\Program Files\Aseprite\Aseprite.exe" -b %folderRoot%/%folderCustom%/fency_3.aseprite %scaling% --save-as %folderRoot%/%folderCustom%/fency_3.png
+"C:\Program Files\Aseprite\Aseprite.exe" -b %folderRoot%/%folderCustom%/fency_4.aseprite %scaling% --save-as %folderRoot%/%folderCustom%/fency_4.png
+"C:\Program Files\Aseprite\Aseprite.exe" -b %folderRoot%/%folderCustom%/fency_5.aseprite %scaling% --save-as %folderRoot%/%folderCustom%/fency_5.png
+"C:\Program Files\Aseprite\Aseprite.exe" -b %folderRoot%/%folderCustom%/fency_6.aseprite %scaling% --save-as %folderRoot%/%folderCustom%/fency_6.png
+"C:\Program Files\Aseprite\Aseprite.exe" -b %folderRoot%/%folderCustom%/fency_7.aseprite %scaling% --save-as %folderRoot%/%folderCustom%/fency_7.png
+"C:\Program Files\Aseprite\Aseprite.exe" -b %folderRoot%/%folderCustom%/fency_8.aseprite %scaling% --save-as %folderRoot%/%folderCustom%/fency_8.png
+
+
 
 rem Heart
 "C:\Program Files\Aseprite\Aseprite.exe" -b %folderRoot%/%folderCustom%/heart.aseprite %scaling% --save-as %folderRoot%/%folderCustom%/heart.png
@@ -57,6 +66,7 @@ rem --------------
 
 rem [Map]
 "C:\Program Files\Aseprite\Aseprite.exe" -b %folderRoot%/Map/map.aseprite %scaling% --save-as %folderRoot%/Map/map.png
+"C:\Program Files\Aseprite\Aseprite.exe" -b %folderRoot%/Map/water_map.aseprite %scaling% --save-as %folderRoot%/Map/water_map.png
 
 rem --------------
 

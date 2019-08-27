@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class LegsControllerComponent : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [Space]
+    [Header("Animator")]
+    public Animator animatorLegs;
+
+    private Vector2 direction;
+    private float speed;
+
+    private void FixedUpdate()
     {
-        
+        AnimatorHandler();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void AnimatorHandler()
     {
-        
+        direction = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        speed = Mathf.Clamp(direction.magnitude, 0.0f, 1.0f);
+
+		animatorLegs.SetFloat("speed", speed);
     }
 }

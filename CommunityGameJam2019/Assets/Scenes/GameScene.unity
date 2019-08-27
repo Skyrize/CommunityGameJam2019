@@ -471,6 +471,11 @@ PrefabInstance:
       propertyPath: m_FlipX
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4465473095693983135, guid: 4c6398146e5bcb94a94ba3e6a65cb632,
+        type: 3}
+      propertyPath: animatorBody
+      value: 
+      objectReference: {fileID: 1114319765}
     - target: {fileID: 2876164783490210556, guid: 4c6398146e5bcb94a94ba3e6a65cb632,
         type: 3}
       propertyPath: m_Sprite
@@ -497,5 +502,10 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6962490448020406245, guid: 4c6398146e5bcb94a94ba3e6a65cb632,
+        type: 3}
+      propertyPath: animatorLegs
+      value: 
+      objectReference: {fileID: 1456921522}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c6398146e5bcb94a94ba3e6a65cb632, type: 3}

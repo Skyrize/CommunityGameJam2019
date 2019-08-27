@@ -1,9 +1,7 @@
-set folderRoot=Dreamland
+set folderRoot=Realityland
 set scaling=--scale 2
 
 rem REALITYLAND
-
-set folderRoot=Realityland
 
 rem Decoration
 

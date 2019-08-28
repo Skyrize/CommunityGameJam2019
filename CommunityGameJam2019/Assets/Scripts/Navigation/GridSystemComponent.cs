@@ -8,7 +8,6 @@ public class GridSystemComponent : MonoBehaviour
     public Vector3 gridWorldSize = Vector2.one;
     public float cellRadius = 0.5f;
 
-    public float debugGap = 0.1f;
     Cell[,] grid;
 
     float cellDiameter;
@@ -40,9 +39,9 @@ public class GridSystemComponent : MonoBehaviour
 
     public Cell WorldToCell(GameObject target)
     {
-        Vector3 position = target.transform.position;
-        float percentX = (position.x + gridWorldSize.x / 2) / gridWorldSize.x;
-        float percentY = (position.y + gridWorldSize.y / 2) / gridWorldSize.y;
+        Vector3 position = target.transform.position - transform.position + new Vector3(gridWorldSize.x / 2,  gridWorldSize.y / 2, 0);
+        float percentX = position.x / gridWorldSize.x;
+        float percentY = position.y / gridWorldSize.y;
         int x;
         int y;
 
@@ -64,7 +63,6 @@ public class GridSystemComponent : MonoBehaviour
                 Gizmos.color = cell.walkable ? Color.blue : Color.red;
                 if (cell == playerCell)
                     Gizmos.color = Color.green;
-                Gizmos.DrawCube(cell.worldPosition, Vector3.one * (cellDiameter - debugGap));
             }
         }
     }

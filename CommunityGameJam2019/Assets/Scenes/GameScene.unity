@@ -13086,7 +13086,7 @@ GameObject:
   - component: {fileID: 2093418217}
   - component: {fileID: 2093418216}
   - component: {fileID: 2093418218}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Decorations
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14242,12 +14242,12 @@ PrefabInstance:
     - target: {fileID: 7328930859254142203, guid: a83a5c893eafae141a3eeed322c12ee9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7328930859254142203, guid: a83a5c893eafae141a3eeed322c12ee9,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1
+      value: -8
       objectReference: {fileID: 0}
     - target: {fileID: 7328930859254142203, guid: a83a5c893eafae141a3eeed322c12ee9,
         type: 3}
@@ -14297,22 +14297,22 @@ PrefabInstance:
     - target: {fileID: 970952956604662799, guid: a83a5c893eafae141a3eeed322c12ee9,
         type: 3}
       propertyPath: gridWorldSize.x
-      value: 10
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 970952956604662799, guid: a83a5c893eafae141a3eeed322c12ee9,
         type: 3}
       propertyPath: gridWorldSize.y
-      value: 10
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 970952956604662799, guid: a83a5c893eafae141a3eeed322c12ee9,
         type: 3}
       propertyPath: cellRadius
-      value: 0.2
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 970952956604662799, guid: a83a5c893eafae141a3eeed322c12ee9,
         type: 3}
       propertyPath: Player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1903110183}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a83a5c893eafae141a3eeed322c12ee9, type: 3}

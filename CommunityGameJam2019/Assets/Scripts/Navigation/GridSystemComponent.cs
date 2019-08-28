@@ -4,41 +4,68 @@ using UnityEngine;
 
 public class GridSystemComponent : MonoBehaviour
 {
-    
-    [Header("Attributes")]
-    public int columns = 2;
-    public int rows = 2;
-    public Vector2 cellScale = new Vector2(1,1);
-    [Space]
-    [Header("Attributes")]
-    public GameObject cellPrefab;
+    public LayerMask unwalkableMask;
+    public Vector3 gridWorldSize = Vector2.one;
+    public float cellRadius = 0.5f;
 
-    private void OnValidate()
+    public float debugGap = 0.1f;
+    Cell[,] grid;
+
+    float cellDiameter;
+    int gridSizeX;
+    int gridSizeY;
+
+    private void Start()
     {
-        float sizeX = cellPrefab.GetComponent<BoxCollider2D>().size.x;
-        float sizeY = cellPrefab.GetComponent<BoxCollider2D>().size.y;
-        Vector3 position;
-        GameObject cell = null;
+        cellDiameter = cellRadius * 2;
+        gridSizeX = Mathf.RoundToInt(gridWorldSize.x / cellDiameter);
+        gridSizeY = Mathf.RoundToInt(gridWorldSize.y / cellDiameter);
+        CreateGrid();
+    }
 
-        while (transform.childCount != 0)
-            Destroy(transform.GetChild(0));
-        for (int y = 0; y != columns; y++) {
-            for (int x = 0; x != rows; x++) {
-                position = new Vector3(x * sizeX * cellScale.x, y * sizeY * cellScale.y);
-                cell = Instantiate(cellPrefab, position, transform.rotation, transform);
-                cell.transform.localScale = cellScale;
+    void CreateGrid()
+    {
+        grid = new Cell[gridSizeX, gridSizeY];
+        Vector3 startPosition = transform.position - Vector3.right * gridWorldSize.x / 2 - Vector3.up * gridWorldSize.y / 2;
+
+        for (int x = 0; x < gridSizeX; x++) {
+            for (int y = 0; y < gridSizeY; y++) {
+                Vector3 newPosition = startPosition + Vector3.right * (x * cellDiameter + cellRadius) + Vector3.up * (y * cellDiameter + cellRadius);
+                newPosition.z = 0;
+                bool walkable = !Physics2D.OverlapCircle(newPosition, cellRadius, unwalkableMask);
+                grid[x, y] = new Cell(walkable, newPosition);
             }
         }
     }
-    // Start is called before the first frame update
-    void Start()
-    {
 
+    public Cell WorldToCell(GameObject target)
+    {
+        Vector3 position = target.transform.position;
+        float percentX = (position.x + gridWorldSize.x / 2) / gridWorldSize.x;
+        float percentY = (position.y + gridWorldSize.y / 2) / gridWorldSize.y;
+        int x;
+        int y;
+
+        percentX = Mathf.Clamp01(percentX);
+        percentY = Mathf.Clamp01(percentY);
+        x = Mathf.RoundToInt((gridSizeX - 1) * percentX);
+        y = Mathf.RoundToInt((gridSizeY - 1) * percentY);
+        return grid[x,y];
     }
 
-    // Update is called once per frame
-    void Update()
+    public GameObject Player;
+    private void OnDrawGizmos()
     {
-        
+        Gizmos.DrawWireCube(transform.position, gridWorldSize);
+
+        if (grid != null) {
+            Cell playerCell = WorldToCell(Player);
+            foreach (Cell cell in grid) {
+                Gizmos.color = cell.walkable ? Color.blue : Color.red;
+                if (cell == playerCell)
+                    Gizmos.color = Color.green;
+                Gizmos.DrawCube(cell.worldPosition, Vector3.one * (cellDiameter - debugGap));
+            }
+        }
     }
 }

@@ -41,9 +41,11 @@ rem Baryk
 "C:\Program Files\Aseprite\Aseprite.exe" -b %folderRoot%/%folderCustom%/baryl_red.aseprite --scale 4 --save-as %folderRoot%/%folderCustom%/baryl_red.png
 "C:\Program Files\Aseprite\Aseprite.exe" -b %folderRoot%/%folderCustom%/baryl_blue.aseprite --scale 4 --save-as %folderRoot%/%folderCustom%/baryl_blue.png
 
-
 rem Building
 "C:\Program Files\Aseprite\Aseprite.exe" -b %folderRoot%/%folderCustom%/building.aseprite --scale 4 --save-as %folderRoot%/%folderCustom%/building.png
+
+rem Floor Lamp
+"C:\Program Files\Aseprite\Aseprite.exe" -b %folderRoot%/%folderCustom%/floor_lamp.aseprite --scale 4 --save-as %folderRoot%/%folderCustom%/floor_lamp.png
 
 
 rem --------------

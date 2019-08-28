@@ -50,7 +50,7 @@ public class GridSystemComponent : MonoBehaviour
                 checkX = cell.x + x;
                 checkY = cell.y + y;
                 if (checkX >= 0 && checkX < gridSizeX && checkY >= 0 && checkY < gridSizeY) {
-                    neighbours.Add(grid[checkX, checkY]),
+                    //neighbours.Add(grid[checkX, checkY]),
                 }
             }
         }

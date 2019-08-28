@@ -1,5 +1,5 @@
 set folderRoot=Dreamland
-set scaling=--scale 2
+set scaling=--scale 6
 
 rem [Player]
 
@@ -21,6 +21,7 @@ rem Finger dreamland
 rem --------------
 
 rem [Decoration]
+set scaling=--scale 2
 set folderCustom=Decorations
 
 rem Rock
@@ -58,8 +59,7 @@ rem Pills
 "C:\Program Files\Aseprite\Aseprite.exe" -b %folderRoot%/%folderCustom%/pill_red.aseprite %scaling% --save-as %folderRoot%/%folderCustom%/pill_red.png
 
 rem bullet heart
-"C:\Program Files\Aseprite\Aseprite.exe" -b %folderRoot%/%folderCustom%/bullet_heart.aseprite %scaling% --save-as %folderRoot%/%folderCustom%/bullet_heart.png
-"C:\Program Files\Aseprite\Aseprite.exe" -b %folderRoot%/%folderCustom%/bullet_heart.aseprite %scaling% --save-as %folderRoot%/%folderCustom%/bullet_heart.png
+"C:\Program Files\Aseprite\Aseprite.exe" -b %folderRoot%/%folderCustom%/bullet_heart.aseprite --scale 8 --save-as %folderRoot%/%folderCustom%/bullet_heart.png
 
 
 rem --------------

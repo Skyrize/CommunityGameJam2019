@@ -32,9 +32,44 @@ public class GridSystemComponent : MonoBehaviour
                 Vector3 newPosition = startPosition + Vector3.right * (x * cellDiameter + cellRadius) + Vector3.up * (y * cellDiameter + cellRadius);
                 newPosition.z = 0;
                 bool walkable = !Physics2D.OverlapCircle(newPosition, cellRadius, unwalkableMask);
-                grid[x, y] = new Cell(walkable, newPosition);
+                grid[x, y] = new Cell(walkable, newPosition, x, y);
             }
         }
+    }
+
+    public List<Cell> GetNeighbours(Cell cell)
+    {
+        List<Cell> neighbours = new List<Cell>();
+        int checkX, checkY;
+
+        for (int x = -1; x != 2; x++) {
+            for (int y = -1; y != 2; y++) {
+                if (x == 0 && y == 0) {
+                    continue;
+                }
+                checkX = cell.x + x;
+                checkY = cell.y + y;
+                if (checkX >= 0 && checkX < gridSizeX && checkY >= 0 && checkY < gridSizeY) {
+                    neighbours.Add(grid[checkX, checkY]),
+                }
+            }
+        }
+        return neighbours;
+    }
+
+    public Cell WorldToCell(Vector3 targetPosition)
+    {
+        Vector3 position = targetPosition - transform.position + new Vector3(gridWorldSize.x / 2,  gridWorldSize.y / 2, 0);
+        float percentX = position.x / gridWorldSize.x;
+        float percentY = position.y / gridWorldSize.y;
+        int x;
+        int y;
+
+        percentX = Mathf.Clamp01(percentX);
+        percentY = Mathf.Clamp01(percentY);
+        x = Mathf.RoundToInt((gridSizeX - 1) * percentX);
+        y = Mathf.RoundToInt((gridSizeY - 1) * percentY);
+        return grid[x,y];
     }
 
     public Cell WorldToCell(GameObject target)

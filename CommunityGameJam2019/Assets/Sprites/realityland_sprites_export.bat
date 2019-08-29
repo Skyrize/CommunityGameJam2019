@@ -19,6 +19,11 @@ rem Military
 "C:\Program Files\Aseprite\Aseprite.exe" -b %folderRoot%/%folderCustom%/military_gun_left.aseprite %scaling% --save-as %folderRoot%/%folderCustom%/military_gun_left.png
 "C:\Program Files\Aseprite\Aseprite.exe" -b %folderRoot%/%folderCustom%/military_gun_right.aseprite %scaling% --save-as %folderRoot%/%folderCustom%/military_gun_right.png
 
+rem Civile
+"C:\Program Files\Aseprite\Aseprite.exe" -b %folderRoot%/%folderCustom%/civile_idle.aseprite %scaling% --save-as %folderRoot%/%folderCustom%/civile_idle.png
+"C:\Program Files\Aseprite\Aseprite.exe" -b %folderRoot%/%folderCustom%/civile_walk.aseprite %scaling% --save-as %folderRoot%/%folderCustom%/civile_walk.png
+
+
 
 rem --------------
 

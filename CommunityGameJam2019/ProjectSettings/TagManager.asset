@@ -49,3 +49,6 @@ TagManager:
   - name: Map
     uniqueID: 2005595807
     locked: 0
+  - name: Filter
+    uniqueID: 1868787135
+    locked: 0

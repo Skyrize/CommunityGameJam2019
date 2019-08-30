@@ -26,7 +26,7 @@ public class ArmControllerComponent : MonoBehaviour
     {
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         direction = new Vector2(mousePosition.x - transform.position.x, mousePosition.y - transform.position.y);
-        transform.right = direction;   
+        transform.right = direction;
     }
 
     /**

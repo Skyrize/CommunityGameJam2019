@@ -52,6 +52,9 @@ rem Building
 rem Floor Lamp
 "C:\Program Files\Aseprite\Aseprite.exe" -b %folderRoot%/%folderCustom%/floor_lamp.aseprite --scale 4 --save-as %folderRoot%/%folderCustom%/floor_lamp.png
 
+rem Filter
+"C:\Program Files\Aseprite\Aseprite.exe" -b %folderRoot%/%folderCustom%/filter.aseprite --scale 64 --save-as %folderRoot%/%folderCustom%/filter.png
+
 
 rem --------------
 

@@ -13,7 +13,11 @@ public class HealthComponent : MonoBehaviour
     [Header("Statistics")]
 
     public float health = 100;
-    bool isAlive = true;
+    public bool isAlive {
+        get {
+            return health > 0;
+        }
+    }
 
     public void GetHealed(float amount)
     {
@@ -23,8 +27,7 @@ public class HealthComponent : MonoBehaviour
     public void GetDamaged(float amount)
     {
         health = Mathf.Max(health - amount, 0);
-        if (health <= 0) {
-            isAlive = false;
+        if (!isAlive) {
             dieEvent.Invoke();
         }
     }

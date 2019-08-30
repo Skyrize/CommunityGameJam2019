@@ -7,6 +7,7 @@ public class GridSystemComponent : MonoBehaviour
     public LayerMask unwalkableMask;
     public Vector3 gridWorldSize = Vector2.one;
     public float cellRadius = 0.5f;
+    public float cellDebugOffset = 0.1f;
 
     Cell[,] grid;
 
@@ -14,7 +15,14 @@ public class GridSystemComponent : MonoBehaviour
     int gridSizeX;
     int gridSizeY;
 
-    private void Start()
+    public int MaxSize
+    {
+        get {
+            return gridSizeX * gridSizeY;
+        }
+    }
+
+    private void Awake()
     {
         cellDiameter = cellRadius * 2;
         gridSizeX = Mathf.RoundToInt(gridWorldSize.x / cellDiameter);
@@ -50,7 +58,7 @@ public class GridSystemComponent : MonoBehaviour
                 checkX = cell.x + x;
                 checkY = cell.y + y;
                 if (checkX >= 0 && checkX < gridSizeX && checkY >= 0 && checkY < gridSizeY) {
-                    //neighbours.Add(grid[checkX, checkY]),
+                    neighbours.Add(grid[checkX, checkY]);
                 }
             }
         }
@@ -87,17 +95,27 @@ public class GridSystemComponent : MonoBehaviour
         return grid[x,y];
     }
 
+
+    [Space]
+    [Space]
+    [Header("Debug")]
+    public bool debugMode = true;
     public GameObject Player;
+    public GameObject citizen;
+    public List<Cell> path;
     private void OnDrawGizmos()
     {
-        Gizmos.DrawWireCube(transform.position, gridWorldSize);
+        if (debugMode) {
+            Gizmos.DrawWireCube(transform.position, gridWorldSize);
 
-        if (grid != null) {
-            Cell playerCell = WorldToCell(Player);
-            foreach (Cell cell in grid) {
-                Gizmos.color = cell.walkable ? Color.blue : Color.red;
-                if (cell == playerCell)
-                    Gizmos.color = Color.green;
+            if (grid != null) {
+                Cell playerCell = WorldToCell(Player);
+                foreach (Cell cell in grid) {
+                    Gizmos.color = cell.walkable ? Color.white : Color.black;
+                    if (cell == playerCell)
+                        Gizmos.color = Color.red;
+                    Gizmos.DrawCube(cell.worldPosition, Vector3.one * (cellDiameter - cellDebugOffset));
+                }
             }
         }
     }

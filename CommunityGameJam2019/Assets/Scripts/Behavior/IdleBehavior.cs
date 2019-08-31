@@ -5,11 +5,7 @@ using UnityEngine;
 public class IdleBehavior : StateMachineBehaviour
 {
     [Header("Attributes")]
-    public float fleeingDistance = 2;
-    public float patrolWaiting = 3;
-
-    [Space]
-    [Header("Attributes")]
+    public float idleDuration = 3;
     
     [Space]
     [Header("Statistics")]
@@ -17,10 +13,8 @@ public class IdleBehavior : StateMachineBehaviour
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-       waitingTimer = patrolWaiting;
+       waitingTimer = idleDuration;
     }
-
-       //animator.SetBool("shouldPatrol", true);
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -28,7 +22,7 @@ public class IdleBehavior : StateMachineBehaviour
         // if (Vector2.Distance(target.position, animator.transform.position) <=  fleeingDistance) {
         // }
         if (waitingTimer <= 0) {
-            animator.SetBool("shouldPatrol", true);
+            //animator.SetBool("patrololol", true);
         } else {
             waitingTimer -= Time.deltaTime;
         }

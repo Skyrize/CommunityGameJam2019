@@ -2,26 +2,38 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FleeingBehavior : StateMachineBehaviour
+public class FleeBehavior : StateMachineBehaviour
 {
     [Header("Attributes")]
+    //public float fleeDuration = 3;
     public float speed = 1;
 
     [Space]
     [Header("References")]
     public Transform target;
-    public GameObject cover = null;
 
-    
-    // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
-    override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    //[Space]
+    //[Header("Statistics")]
+    //public float fleeTimer = 3;
+
+    private void Awake()
     {
         target = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
+    // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
+    //override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    //{
+    //}
+
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        //if (fleeTimer <= 0) {
+
+        //} else {
+
+        //}
         animator.transform.position = Vector2.MoveTowards(animator.transform.position, target.position, -speed * Time.deltaTime);
     }
 

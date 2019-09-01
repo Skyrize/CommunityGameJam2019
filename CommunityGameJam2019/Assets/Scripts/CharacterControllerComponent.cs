@@ -1,11 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class CharacterControllerComponent : MonoBehaviour
 {
     [Header("References")]
     public GameObject gun;
+    //public Tilemap map;
+
+    //public void becomeInsane()
+    //{
+    //    map.RefreshAllTiles();
+    //}
+
+    //public void becomeSane()
+    //{
+
+    //}
 
     public void Die()
     {
@@ -23,6 +35,12 @@ public class CharacterControllerComponent : MonoBehaviour
     {
         if (Input.GetButton("Fire1")) {
             gun.GetComponent<GunComponent>().Fire();
+        }
+        if (Input.GetKeyDown(KeyCode.O)) {
+            GetComponent<SanityComponent>().GetHealed(10);
+        }
+        if (Input.GetKeyDown(KeyCode.P)) {
+            GetComponent<SanityComponent>().GetDamaged(10);
         }
     }
 }

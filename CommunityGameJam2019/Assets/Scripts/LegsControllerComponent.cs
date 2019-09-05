@@ -13,18 +13,18 @@ public class LegsControllerComponent : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private float horizontalMove;
 
-    private void Start()
+    private CharacterMovementComponent movement;
+
+    private void Awake()
     {
         horizontalMove = 0f;
         spriteRenderer = this.GetComponent<SpriteRenderer>();
+        movement = transform.parent.GetComponent<CharacterMovementComponent>();
     }
 
     private void FixedUpdate()
     {
-        horizontalMove = Input.GetAxis("Horizontal");
-
-        direction = new Vector2(horizontalMove, Input.GetAxis("Vertical"));
-        speed = Mathf.Clamp(direction.magnitude, 0.0f, 1.0f);
+        speed = Mathf.Clamp(movement.direction.magnitude, 0.0f, 1.0f);
 
         // Used to change the current animation in the animator
         // @see Parameters in Body Animator

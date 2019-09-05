@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3712852009049930348
 Transform:
   m_ObjectHideFlags: 0
@@ -57,6 +57,7 @@ GameObject:
   - component: {fileID: 7597778001898784420}
   - component: {fileID: 4465473095693983135}
   - component: {fileID: 2775723634135564952}
+  - component: {fileID: 1165795480617315954}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -159,6 +160,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1165795480617315954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2699767982105702725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef22c3676b1d7934db7cebf97051ce98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skins: []
+  animators: []
 --- !u!1 &3175407194148864846
 GameObject:
   m_ObjectHideFlags: 0
@@ -170,13 +185,11 @@ GameObject:
   - component: {fileID: 4786170398623245826}
   - component: {fileID: 3796901761795437223}
   - component: {fileID: 1367170058462794285}
-  - component: {fileID: 2081570135609560392}
   - component: {fileID: 2610514030580291199}
-  - component: {fileID: 8214643046467671824}
   - component: {fileID: 6123231631424164448}
   m_Layer: 0
   m_Name: Character
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -206,7 +219,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3175407194148864846}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -235,19 +248,6 @@ MonoBehaviour:
   rb: {fileID: 3796901761795437223}
   direction: {x: 0, y: 0}
   speed: 0
---- !u!114 &2081570135609560392
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3175407194148864846}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd970cfcb3849a9428a1411904cf501e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gun: {fileID: 4745970693791712180}
 --- !u!114 &2610514030580291199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -264,8 +264,8 @@ MonoBehaviour:
   dieEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2081570135609560392}
-        m_MethodName: Die
+      - m_Target: {fileID: 3175407194148864846}
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -278,42 +278,6 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   health: 100
---- !u!114 &8214643046467671824
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3175407194148864846}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a7b25bc1f0242a469e0e7b8eb172171, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minSanity: 25
-  maxSanity: 100
-  insaneEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  saneEvent:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  sanity: 100
 --- !u!70 &6123231631424164448
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -342,6 +306,7 @@ GameObject:
   - component: {fileID: 2876164783490210556}
   - component: {fileID: 6962490448020406245}
   - component: {fileID: 1984453835185029643}
+  - component: {fileID: 8066851058807097261}
   m_Layer: 0
   m_Name: Legs
   m_TagString: Untagged
@@ -444,6 +409,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8066851058807097261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5741244679719580788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef22c3676b1d7934db7cebf97051ce98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skins:
+  - {fileID: 0}
+  animators:
+  - 
 --- !u!1001 &8099041939848322039
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -455,11 +436,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Gun
-      objectReference: {fileID: 0}
-    - target: {fileID: 8359227589063968055, guid: 9c6f84e6816d6ca42b28977084f2c660,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3522452399883590997, guid: 9c6f84e6816d6ca42b28977084f2c660,
         type: 3}
@@ -531,14 +507,13 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0.383
       objectReference: {fileID: 0}
+    - target: {fileID: 8359227589063968055, guid: 9c6f84e6816d6ca42b28977084f2c660,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c6f84e6816d6ca42b28977084f2c660, type: 3}
---- !u!1 &4745970693791712180 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3582754828137846851, guid: 9c6f84e6816d6ca42b28977084f2c660,
-    type: 3}
-  m_PrefabInstance: {fileID: 8099041939848322039}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4649914321163175586 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3522452399883590997, guid: 9c6f84e6816d6ca42b28977084f2c660,

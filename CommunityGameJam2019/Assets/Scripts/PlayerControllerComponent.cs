@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class CharacterControllerComponent : MonoBehaviour
+public class PlayerControllerComponent : MonoBehaviour
 {
     [Header("References")]
     public GameObject gun;
@@ -42,5 +42,6 @@ public class CharacterControllerComponent : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P)) {
             GetComponent<SanityComponent>().GetDamaged(10);
         }
+        GetComponent<CharacterMovementComponent>().Move(new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")));
     }
 }

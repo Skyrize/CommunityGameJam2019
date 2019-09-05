@@ -36,7 +36,7 @@ public class SanityComponent : MonoBehaviour
     {
         bool wasSane = isSane;
 
-        sanity = Mathf.Max(sanity - amount, 0);
+        sanity = Mathf.Max(sanity - amount, 0.0f);
         if (!isSane && wasSane) {
             insaneEvent.Invoke();
         }

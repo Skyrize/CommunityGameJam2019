@@ -22,17 +22,12 @@ public class CharacterMovementComponent : MonoBehaviour
         
     }
 
-    private void Move()
+    public void Move(Vector2 newDirection)
     {
-        direction = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        direction = newDirection;
         speed = Mathf.Clamp(direction.magnitude, 0.0f, 1.0f);
         direction.Normalize();
         rb.velocity = direction * speed * maxSpeed;
-    }
-
-    private void FixedUpdate()
-    {
-        Move();
     }
 
 }

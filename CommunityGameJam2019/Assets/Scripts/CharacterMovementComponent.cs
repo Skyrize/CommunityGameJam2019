@@ -30,4 +30,9 @@ public class CharacterMovementComponent : MonoBehaviour
         rb.velocity = direction * speed * maxSpeed;
     }
 
+    private void Update() {
+        if (direction == Vector2.zero && rb.velocity != Vector2.zero)
+            Move(Vector2.zero);
+    }
+
 }

@@ -22,7 +22,7 @@ public class IdleBehavior : StateMachineBehaviour
         // if (Vector2.Distance(target.position, animator.transform.position) <=  fleeingDistance) {
         // }
         if (waitingTimer <= 0) {
-            //animator.SetBool("patrololol", true);
+            animator.SetBool("shouldPatrol", true);
         } else {
             waitingTimer -= Time.deltaTime;
         }

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7328930859254142203}
   - component: {fileID: 970952956604662799}
   - component: {fileID: 168008098547171467}
+  - component: {fileID: 8106962195491516530}
   m_Layer: 0
   m_Name: NavigationSystem (A_)
   m_TagString: Untagged
@@ -47,9 +48,12 @@ MonoBehaviour:
   unwalkableMask:
     serializedVersion: 2
     m_Bits: 2048
-  gridWorldSize: {x: 25, y: 25, z: 0}
+  gridWorldSize: {x: 30, y: 30, z: 0}
   cellRadius: 0.1
+  cellDebugOffset: 0.05
+  debugMode: 0
   Player: {fileID: 0}
+  citizen: {fileID: 0}
 --- !u!114 &168008098547171467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,5 +64,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c7eda613e89c7e642b26b468c1c2ec0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8106962195491516530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3264046078168915141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0775bb6a65664924ebc3b3cc02fed02b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

@@ -37,6 +37,7 @@ public class PathRequestManagerComponent : MonoBehaviour
 
     public void FinisedProcessingPath(Vector3[] path, bool success)
     {
+        Debug.Log("END");
         currentRequest.callback(path, success);
         isProcessing = false;
         TryProcessNext();

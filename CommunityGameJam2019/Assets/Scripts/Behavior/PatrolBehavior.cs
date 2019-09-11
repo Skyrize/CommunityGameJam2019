@@ -11,32 +11,17 @@ public class PatrolBehavior : StateMachineBehaviour
     [Space]
     [Header("References")]
     public GameObject wayPoint = null;
+    Vector3 direction;
 
-    private void Awake() {
-    }
-
-    public void StopPatrolling(Animator animator)
+    private void Start()
     {
-        animator.SetBool("shouldPatrol", false);
     }
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         wayPoint = GameObject.FindWithTag("WayPoints").GetComponent<WayPointSystemComponent>().GetNewWaypoint(wayPoint);
-
-    }
-
-    // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
-    override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    {
-        animator.transform.position = Vector2.MoveTowards(animator.transform.position, wayPoint.transform.position, speed * Time.deltaTime);
-    }
-
-    // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
-    override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    {
-       
+        animator.gameObject.GetComponent<PathFollowComponent>().SeekPath(wayPoint.transform.position);
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

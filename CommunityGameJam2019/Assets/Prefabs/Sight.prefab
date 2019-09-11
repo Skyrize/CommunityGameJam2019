@@ -48,7 +48,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 2
+  m_Radius: 5
 --- !u!114 &4696358062021485125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61,7 +61,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f022b8bc4292abf42b329bee0a11e6d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tags: []
+  tags:
+  - Player
+  onPerceptionCallback:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: PerceptionEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!50 &3958458595880980759
 Rigidbody2D:
   serializedVersion: 4
